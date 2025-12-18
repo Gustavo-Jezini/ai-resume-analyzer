@@ -13,10 +13,11 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { auth, kv } = usePuterStore();
+  const { auth, kv, fs } = usePuterStore();
   const navigate = useNavigate();
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [loadingResumes, setLoadingResumes] = useState(false);
+  const [isClearing, setIsClearing] = useState(false);
 
   useEffect(() => {
     if(!auth.isAuthenticated) navigate('/auth?next=/');
@@ -31,13 +32,40 @@ export default function Home() {
         JSON.parse(resume.value) as Resume
       ))
 
-      console.log(parsedResumes);
       setResumes(parsedResumes || []);
 
       setLoadingResumes(false);
     }
     loadResumes();
   }, [])
+
+  const handleClearAll = async () => {
+    if (!confirm('Are you sure you want to delete all resumes? This action cannot be undone.')) {
+      return;
+    }
+
+    setIsClearing(true);
+
+    try {
+      await kv.flush();
+      
+      const files = (await fs.readDir("./")) as FSItem[];
+      for (const file of files) {
+        try {
+          await fs.delete(file.path);
+        } catch (error) {
+          console.warn('Failed to delete file:', file.path, error);
+        }
+      }
+      
+      setResumes([]);
+    } catch (error) {
+      console.error('Failed to clear all data:', error);
+      alert('Failed to clear all data. Please try again.');
+    } finally {
+      setIsClearing(false);
+    }
+  };
 
   return (
   <main className="bg-[url('/public/images/bg-main.svg')] bg-cover">
@@ -51,6 +79,18 @@ export default function Home() {
             <h2>Review your submissions and check AI-powered feedback.</h2>
           )}
         </div>
+        
+        {!loadingResumes && resumes.length > 0 && (
+          <div className="flex justify-center mb-6">
+            <button
+              onClick={handleClearAll}
+              disabled={isClearing}
+              className="bg-red-500 hover:bg-red-600 disabled:bg-red-300 text-white px-6 py-2 rounded-md font-semibold transition-colors duration-200"
+            >
+              {isClearing ? 'Clearing...' : 'Clear All Resumes'}
+            </button>
+          </div>
+        )}
         {loadingResumes && (
             <div className="flex flex-col items-center justify-center">
               <img src="/images/resume-scan-2.gif" className="w-[200px]" />
