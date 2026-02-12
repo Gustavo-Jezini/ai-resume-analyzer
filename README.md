@@ -70,8 +70,7 @@ npm run dev
 
 A simple, direct, yet powerful and practical application.
 
-https://github.com/user-attachments/assets/7109c589-ce14-45a7-b351-13648fc97fff
-
+<img width="841" height="783" alt="Screenshot 1" src="https://github.com/user-attachments/assets/4e9ca151-77ce-4216-9edf-e9a3d91cbc61" />
 <img width="841" height="783" alt="Screenshot 2" src="https://github.com/user-attachments/assets/d1dbdae1-b5b2-41ca-ae40-f1c8cedf1687" />
 <img width="841" height="923" alt="Screenshot 3" src="https://github.com/user-attachments/assets/0568367b-c927-4caf-9da0-29f103c7a047" />
 <img width="1623" height="969" alt="Screenshot 4" src="https://github.com/user-attachments/assets/2c89163d-b3d6-4285-a72e-f80eef1235d2" />
