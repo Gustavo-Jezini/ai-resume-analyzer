@@ -1,87 +1,79 @@
-# Welcome to React Router!
+# Resume Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A project designed to analyze resumes based on specific job descriptions.  
+Built with **React Router** and [PuterJs](https://docs-puter-com.translate.goog/supported-platforms/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc).
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+The application uses AI to evaluate both the resume and its ATS compatibility, checking whether it aligns with a given job description in order to increase the candidate’s chances of getting an interview.
 
-## Features
+Puter.js was used to simplify AI integration, authentication, and PDF file handling.  
+Thanks to Puter, there is no need to manage API keys or complex configurations — simply run `npm run dev` and the project is ready to use.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## 🛠 Tech Stack
 
-## Getting Started
+- **React**
+- **React Router**
+- **Puter.js** (Authentication, AI integration, PDF handling)
 
-### Installation
+This project was built using React Router to deepen my understanding of routing outside of Next.js.  
+While I typically use standard React or Next.js, I wanted to explore different architectural approaches and routing strategies.
 
-Install the dependencies:
+Puter.js was used to handle:
 
-```bash
-npm install
-```
+- Authentication
+- PDF file uploads and processing
+- Direct AI interaction
 
-### Development
+---
 
-Start the development server with HMR:
+## 🏗 Architecture
+
+The project follows a simple and organized structure.
+
+### `/app`
+
+Contains:
+
+- Components  
+- Routes  
+- `lib` folder  
+
+### `/app/lib`
+
+- Puter configuration files  
+- Service setup for AI and authentication  
+
+The structure keeps routing logic and service configuration separated from UI components.
+
+---
+
+## ✨ Features
+
+- Upload a resume (PDF)
+- Provide a job description
+- AI evaluates compatibility between resume and job
+- ATS alignment analysis
+- Score from **0 to 100**
+- Suggestions on how to improve the resume
+
+---
+
+## 📦 Installation
+
+After cloning the repository, simply run:
 
 ```bash
 npm run dev
 ```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
 ---
 
-Built with ❤️ using React Router.
+## 🚀 Demo
+
+A simple, direct, yet powerful and practical application.
+
+https://github.com/user-attachments/assets/7109c589-ce14-45a7-b351-13648fc97fff
+
+<img width="841" height="783" alt="Screenshot 2" src="https://github.com/user-attachments/assets/d1dbdae1-b5b2-41ca-ae40-f1c8cedf1687" />
+<img width="841" height="923" alt="Screenshot 3" src="https://github.com/user-attachments/assets/0568367b-c927-4caf-9da0-29f103c7a047" />
+<img width="1623" height="969" alt="Screenshot 4" src="https://github.com/user-attachments/assets/2c89163d-b3d6-4285-a72e-f80eef1235d2" />
+
+---
